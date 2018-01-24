@@ -19,7 +19,7 @@ var arr = [10,20,30];
 
 //Code Here
 
-
+const first = arr => arr[0];
 
 ////////// PROBLEM 2 //////////
 
@@ -34,7 +34,9 @@ var arr = [40,50,60];
 
 //Code Here
 
-
+const last = array => {
+  return array[array.length -1];
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -49,7 +51,11 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 
 //Code Here
 
-
+const looper = array => {
+  for ( let x = 0; x < array.length; x++ ) {
+    alert(array[x]);
+  }
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -64,7 +70,11 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 
 //Code Here
 
-
+const reversedLooper = arr => {
+  for ( let x = arr.length; x > 0; x-- ) {
+    alert(arr[x-1]);
+  }
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -79,7 +89,15 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 
 //Code Here
 
-
+const evenFinder = array => {
+  const newArr = [];
+  for ( let x = 0; x < array.length; x++ ) {
+    if ( array[x] % 2 === 0 ) {
+      newArr.push(array[x]);
+    }
+  }
+  return newArr;
+}
 
 ////////// EXTRA PRACTICE PROBLEMS BELOW //////////
 
@@ -96,7 +114,18 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 //Code Here
 
-
+const divider = array => {
+  let e = [], o = [], t = [];
+  for ( let x = 0; x < array.length; x++ ) {
+    if ( array[x] % 2 === 0 ) {
+      e.push(array[x]);
+    } else if ( array[x] % 2 > 0 ) {
+      o.push(array[x]);
+    }
+  }
+  t.push(e,o);
+  return t;
+}
 
 ////////// PROBLEM 7 //////////
 
@@ -114,11 +143,17 @@ var getRandomArbitrary = function() {
   Loop through the array (that will be passed in as a parameter) to see if that random number is in the array. 
   If it is, return true, if it's not, return false
 */
-
+var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Code Here
-
-
-
+const finder = array => {
+  let n = getRandomArbitrary();
+  if ( array.includes(n) ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log( finder(numbers) );
 ////////// PROBLEM 8 //////////
 
 // Do not edit the code below.
@@ -144,7 +179,17 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
+const addItem = (array, item) => {
+  array.push(item);
+  return array;
+};
 
+const removeItem = (array, item) => {
+  if ( array.includes(item) ) {
+    array.splice(array.indexOf(item), 1);
+  }
+  return array;
+}
 
 ////////// PROBLEM 9 //////////
 
@@ -154,7 +199,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
-
+const maker = () => {
+  let arr = [];
+  for ( let x = 1; x < 216; x++ ) {
+    arr.push(x);
+  }
+  return arr;
+}
 
 ////////// PROBLEM 10 //////////
 
@@ -170,7 +221,14 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   
 //Code Here
 
-
+const addTen = array => {
+  let newArr = [];
+  for ( let x = 0; x < array.length; x++ ) {
+    newArr.push( Number(array[x]) + 10 );
+  }
+  return newArr;
+};
+console.log( addTen(numbers) );
 
 ////////// PROBLEM 11 //////////
 
@@ -195,7 +253,7 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
-
+const longer = (arr1, arr2) => arr1 > arr2 ? arr1 : arr2;
 
 /*
   As a continuation of the previous problem, write another function called 'both'.
@@ -207,7 +265,17 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
-
+const both = (arr1, arr2) => {
+  let n = [];
+  for ( let x = 0; x < arr1.length; x++ ) {
+    for ( let i = 0; i < arr2.length; i++ ) {
+      if ( arr1[x] == arr2[i] ) {
+        n.push(arr1[x]);
+      }
+    }
+  }
+  return n;
+}
 
 ////////// PROBLEM 12 //////////
 
@@ -247,7 +315,13 @@ var colt = {
 
 //Code Here
 
-
+devMountainEmployees.push(
+  colt,
+  ryan,
+  tyler,
+  cahlan
+);
+console.log( devMountainEmployees );
 
 /*
   Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
@@ -256,7 +330,11 @@ var colt = {
 
 //Code Here
 
-
+for ( let x = 0; x < devMountainEmployees.length; x++ ) {
+  if ( devMountainEmployees[x].name === "Cahlan" ) {
+    devMountainEmployees.splice(devMountainEmployees.indexOf(devMountainEmployees[x]), 1);
+  }
+}
 
 ////////// PROBLEM 13 //////////
 
@@ -268,7 +346,7 @@ var colt = {
 
 //Code Here
 
-
+const users = [];
 
 /*
   Now add three user objects to your users array. Each user object should contain the following properties. name, email, password, username.
@@ -286,7 +364,21 @@ var user1 = {
 // Do not edit the code above.
 
 //Code Here
+const user2 = {
+  name: "SS",
+  email: "emS",
+  password: "Sm",
+  username: "sss"
+}
 
+const user3 = {
+  name: "DD",
+  email: "emD",
+  password: "Dm",
+  username: "ddd"
+}
+
+users.push( user1, user2, user3 );
 
 
 /*
@@ -301,7 +393,11 @@ var user1 = {
 
 //Code Here
 
-
+users.forEach( x => {
+  if ( x.email === "tylermcginnis33@gmail.com" ) {
+    users.splice( users.indexOf(x) );
+  }
+} );
 
 /*
   The activity we just did is very much how data works in 'the real world'.
